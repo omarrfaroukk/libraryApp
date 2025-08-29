@@ -1,0 +1,272 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:library_app/cubit/FavoriteState.dart';
+import 'package:library_app/data/models/my_classes.dart';
+import 'package:library_app/view/pages/my_books.dart';
+import 'package:library_app/view/auth/choose_join.dart';
+
+import '../../cubit/FavoriteCubit.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 80,
+            backgroundColor: const Color(0xFF5ABD8C),
+            centerTitle: true,
+            title: const Text(
+              "Booky",
+              style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 32,
+                  color: Colors.white,
+                  fontStyle: FontStyle.italic),
+            ),
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.search_rounded,
+                    color: Colors.white,
+                  ))
+            ],
+          ),
+          drawer: Drawer(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 60),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.close_rounded,
+                          color: Color(0xFF5ABD8C),
+                          size: 30,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 50),
+                  const Text(
+                    "Welcome, Book_Nerd!",
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
+                      color: Color(0xFF5ABD8C),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Models.myCustomDrawerItem(
+                      Icons.person_2_rounded, "Profile"),
+                  const SizedBox(height: 10),
+                  Models.myCustomDrawerItem(Icons.folder_rounded, "Catalog"),
+                  const SizedBox(height: 10),
+                  Models.myCustomDrawerItem(Icons.groups_rounded, "Friends"),
+                  const SizedBox(height: 10),
+                  Models.myCustomDrawerItem(
+                      Icons.people_alt_rounded, "Groups"),
+                  const SizedBox(height: 10),
+                  Models.myCustomDrawerItem(Icons.event_rounded, "Events"),
+                  const SizedBox(height: 10),
+                  Models.myCustomDrawerItem(
+                      Icons.settings_rounded, "Settings"),
+                  const SizedBox(height: 10),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ChooseJoin()));
+                      },
+                      child: Models.myCustomDrawerItem(
+                          Icons.logout_outlined, "Log out")),
+                ],
+              ),
+            ),
+          ),
+          body: Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/image.png"),
+                    fit: BoxFit.cover)),
+            child: ListView(
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      width: 500,
+                      height: 500,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/onAppBar.png"),
+                              fit: BoxFit.cover)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 20),
+                            child: Text(
+                              "Recently added",
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 20,
+                                  color: Colors.white),
+                            ),
+                          ),
+                          Container(
+                            color: Colors.transparent,
+                            height: 300,
+                            width: double.infinity,
+                            child: ListView.builder(
+                              itemCount: Models.kotob.length,
+                                scrollDirection: Axis.horizontal,
+                                physics: const BouncingScrollPhysics(),
+                                itemExtent: 170,
+                                itemBuilder: (context, index) {
+                                  return MyCustomContainer(
+                                    ast: Models.kotob[index].asset!,
+                                    title: Models.kotob[index].title!,
+                                    desc: Models.kotob[index].author!,
+                                    ct: const Color(0xFF707070),
+                                    cd: const Color(0xFF707070),
+                                    id: index,
+                                  );
+                                },
+                                ),
+                          ),
+                          const SizedBox(height: 50),
+                        ],
+                      ),
+                    ),
+                    BlocBuilder<Favoritecubit, Favoritestate>(
+                      builder: (context, state) {
+                        return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MyBooks()));
+                        },
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 30, vertical: 20),
+                              child: Text(
+                                "My books ",
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 20,
+                                    color: Color(0xFF5ABD8C)),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: SizedBox(
+                                width: double.infinity,
+                                height: 300,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount:state.favorites.length,
+                                itemBuilder: (context, index) {
+                                  return MyCustomContainer(
+                                    ast: state.favorites[index].asset!,
+                                    title: state.favorites[index].title!,
+                                    desc: state.favorites[index].author!,
+                                    ct: const Color(0xFF707070),
+                                    cd: const Color(0xFF707070),
+                                    id: index,
+                                  );
+                                }
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                      },
+                      
+                    ),
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                      child: Text(
+                        "Categoriess",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 20,
+                            color: Color(0xFF5ABD8C)),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Models.myCategoryContainer(
+                                "assets/categories/fantasy.png", "Fantasy"),
+                            Models.myCategoryContainer(
+                                "assets/categories/fiction.png", "Fiction"),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Models.myCategoryContainer(
+                                "assets/categories/Crime.png", "Crime"),
+                            Models.myCategoryContainer(
+                                "assets/categories/youngad.png",
+                                "Young Adult"),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Models.myCategoryContainer(
+                                "assets/categories/horror.png", "Horror"),
+                            Models.myCategoryContainer(
+                                "assets/categories/romance.png", "Romance"),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+  }
+}
