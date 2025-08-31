@@ -39,7 +39,8 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignupCubit, SignupState>(listener: (context, state) {
+    return BlocConsumer<SignupCubit, SignupState>(
+      listener: (context, state) {
       if (state is SignupSuccess) {
         Navigator.push(
           context,
@@ -52,7 +53,8 @@ class _SignupScreenState extends State<SignupScreen> {
               content: Text("Username already exists")),
         );
       }
-    }, builder: (context, state) {
+    },
+    builder: (context, state) {
       return Scaffold(
         appBar: AppBar(
           toolbarHeight: 80,

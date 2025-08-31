@@ -8,6 +8,7 @@ import 'package:library_app/view/auth/choose_join.dart';
 import 'package:library_app/view/auth/login_screen.dart';
 import 'package:library_app/view/auth/start_up_screen.dart';
 import 'package:library_app/view_model/cubit/Login/login_cubit.dart';
+import 'package:library_app/view_model/cubit/Signup/signup_cubit.dart';
 
 import 'view_model/cubit/Favorites/favorites_cubit.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<Favoritecubit>(create: (context) => Favoritecubit()),
         BlocProvider<Logincubit>(create: (context) => Logincubit()),
+        BlocProvider(create: (context)=> SignupCubit())
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
