@@ -2,8 +2,8 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:library_app/cubit/FavoriteCubit.dart';
-import 'package:library_app/cubit/FavoriteState.dart';
+import 'package:library_app/view_model/cubit/Favorites/favorites_cubit.dart';
+import 'package:library_app/view_model/cubit/Favorites/favorites_state.dart';
 
 class MyCustomContainer extends StatefulWidget {
   final Book b;

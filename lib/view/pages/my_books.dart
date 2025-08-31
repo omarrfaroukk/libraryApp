@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:library_app/cubit/FavoriteCubit.dart';
+import 'package:library_app/view_model/cubit/Favorites/favorites_cubit.dart';
 import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/view/pages/book_details.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cubit/FavoriteState.dart';
+import '../../view_model/cubit/Favorites/favorites_state.dart';
 
 class MyBooks extends StatefulWidget {
   const MyBooks({super.key});

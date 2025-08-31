@@ -8,7 +8,7 @@ import 'package:library_app/view/auth/choose_join.dart';
 import 'package:library_app/view/auth/login_screen.dart';
 import 'package:library_app/view/auth/start_up_screen.dart';
 
-import 'cubit/FavoriteCubit.dart';
+import 'view_model/cubit/Favorites/favorites_cubit.dart';
 
 void main() {
   runApp(const MyApp());
