@@ -1,96 +1,10 @@
 import 'dart:core';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:library_app/view_model/cubit/Favorites/favorites_cubit.dart';
-import 'package:library_app/view_model/cubit/Favorites/favorites_state.dart';
 
-class MyCustomContainer extends StatefulWidget {
-  final Book b;
-  final Color ct;
-  final Color cd;
-  
+import '../../core/widgets/my_custom_container.dart';
+import 'Books.dart';
 
-  const MyCustomContainer(
-      {super.key,
-      required this.b,
-      required this.ct,
-      required this.cd,
-      });
 
-  @override
-  State<MyCustomContainer> createState() => _MyCustomContainerState();
-}
-
-class _MyCustomContainerState extends State<MyCustomContainer> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(children: [
-          Container(
-            width: 130,
-            height: 200,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    image: NetworkImage(widget.b.asset!), fit: BoxFit.cover),
-                boxShadow: [
-                  BoxShadow(
-                    offset: const Offset(4, 4),
-                    color: Colors.grey[400]!,
-                  )
-                ]),
-          ),
-          BlocBuilder<Favoritecubit, Favoritestate>(
-            builder: (context, state) {
-              return IconButton(
-                  onPressed: () {
-                    if (state.favorites.contains(Models.kotob[widget.b.id!])) {
-                      context.read<Favoritecubit>().removeFromFavorites(Models.kotob[widget.b.id!]);
-                      Models.kotob[widget.b.id!].isFavourite = false;
-                    }else{
-                    context.read<Favoritecubit>().addToFavorites(Models.kotob[widget.b.id!]);
-                    Models.kotob[widget.b.id!].isFavourite = true;
-                    }
-                   
-                  },
-                  icon: Icon(
-                      state.favorites.contains(Models.kotob[widget.b.id!])
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: const Color(0xFF5ABD8C),
-                      size: 40));
-            },
-          )
-        ]),
-        const SizedBox(
-          height: 5,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(widget.b.title!,
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                color: widget.ct,
-              )),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(widget.b.author!,
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
-              color: widget.cd,
-            ))
-      ],
-    );
-  }
-}
 
 class Models {
   static Widget getBackgroundImage(Widget w) {
@@ -210,77 +124,6 @@ class Models {
     );
   }
 
-  static Widget cardToDisplay(Book b) {
-    return SingleChildScrollView(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            MyCustomContainer(
-              b: b,
-              ct: const Color(0xFF707070),
-              cd: const Color(0xFF707070),
-              
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text("Rating: ${b.rating!}",
-                style: const TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                  color: Color(0xFF5ABD8C),
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-            Text("Genre: ${b.genre!}",
-                style: const TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                  color: Color(0xFF707070),
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-            MaterialButton(
-              minWidth: 207,
-              height: 50,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              color: const Color(0xFF5ABD8C),
-              onPressed: () {},
-              child: const Text(
-                "Add to My Books",
-                style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
-                    color: Colors.white),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: 350,
-              child: Text(b.description!,
-                  style: const TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
-                    color: Color(0xFF707070),
-                  )),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   static List<Book> kotob = [
     Book(
@@ -395,37 +238,3 @@ class Models {
   ];
 }
 
-class Book {
-  String? title;
-  String? author;
-  String? description;
-  String? asset;
-  String? genre;
-  double? rating;
-  int? id;
-  bool? isAvailable;
-  bool isFavourite;
-
-  Book(
-      {required this.title,
-      required this.author,
-      required this.description,
-      required this.asset,
-      required this.genre,
-      required this.rating,
-      required this.id,
-      required this.isFavourite});
-
-  Book copyWith({bool? isFavourite}) {
-    return Book(
-      title: title,
-      author: author,
-      description: description,
-      asset: asset,
-      genre: genre,
-      rating: rating,
-      id: id,
-      isFavourite: isFavourite ?? this.isFavourite,
-    );
-  }
-}
