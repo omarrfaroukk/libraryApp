@@ -70,12 +70,9 @@ class _MyBooksState extends State<MyBooks> {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: MyCustomContainer(
-                              ast: state.favorites[index].asset!,
-                              title: state.favorites[index].title!,
-                              desc: state.favorites[index].author!,
+                              b: state.favorites[index],
                               ct: const Color(0xFF707070),
                               cd: const Color(0xFF707070),
-                              id: index,
                              
                             ),
                           );

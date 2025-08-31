@@ -149,12 +149,9 @@ class _HomePageState extends State<HomePage> {
                                 itemExtent: 170,
                                 itemBuilder: (context, index) {
                                   return MyCustomContainer(
-                                    ast: Models.kotob[index].asset!,
-                                    title: Models.kotob[index].title!,
-                                    desc: Models.kotob[index].author!,
+                                   b: Models.kotob[index],
                                     ct: const Color(0xFF707070),
                                     cd: const Color(0xFF707070),
-                                    id: index,
                                   );
                                 },
                                 ),
@@ -197,12 +194,10 @@ class _HomePageState extends State<HomePage> {
                                   itemCount:state.favorites.length,
                                 itemBuilder: (context, index) {
                                   return MyCustomContainer(
-                                    ast: state.favorites[index].asset!,
-                                    title: state.favorites[index].title!,
-                                    desc: state.favorites[index].author!,
+                                    b: state.favorites[index],
                                     ct: const Color(0xFF707070),
                                     cd: const Color(0xFF707070),
-                                    id: index,
+                                   
                                   );
                                 }
                                 ),

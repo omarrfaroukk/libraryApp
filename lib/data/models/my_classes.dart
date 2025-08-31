@@ -6,21 +6,16 @@ import 'package:library_app/cubit/FavoriteCubit.dart';
 import 'package:library_app/cubit/FavoriteState.dart';
 
 class MyCustomContainer extends StatefulWidget {
-  final String ast;
-  final String title;
-  final String desc;
+  final Book b;
   final Color ct;
   final Color cd;
-  final int id;
+  
 
   const MyCustomContainer(
       {super.key,
-      required this.ast,
-      required this.title,
-      required this.desc,
+      required this.b,
       required this.ct,
       required this.cd,
-      required this.id,
       });
 
   @override
@@ -39,7 +34,7 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                    image: NetworkImage(widget.ast), fit: BoxFit.cover),
+                    image: NetworkImage(widget.b.asset!), fit: BoxFit.cover),
                 boxShadow: [
                   BoxShadow(
                     offset: const Offset(4, 4),
@@ -51,17 +46,17 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
             builder: (context, state) {
               return IconButton(
                   onPressed: () {
-                    if (state.favorites.contains(Models.kotob[widget.id])) {
-                      context.read<Favoritecubit>().removeFromFavorites(Models.kotob[widget.id]);
-                      Models.kotob[widget.id].isFavourite = false;
+                    if (state.favorites.contains(Models.kotob[widget.b.id!])) {
+                      context.read<Favoritecubit>().removeFromFavorites(Models.kotob[widget.b.id!]);
+                      Models.kotob[widget.b.id!].isFavourite = false;
                     }else{
-                    context.read<Favoritecubit>().addToFavorites(Models.kotob[widget.id]);
-                    Models.kotob[widget.id].isFavourite = true;
+                    context.read<Favoritecubit>().addToFavorites(Models.kotob[widget.b.id!]);
+                    Models.kotob[widget.b.id!].isFavourite = true;
                     }
                    
                   },
                   icon: Icon(
-                      state.favorites.contains(Models.kotob[widget.id])
+                      state.favorites.contains(Models.kotob[widget.b.id!])
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color: const Color(0xFF5ABD8C),
@@ -74,7 +69,7 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(widget.title,
+          child: Text(widget.b.title!,
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.w700,
@@ -85,7 +80,7 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
         const SizedBox(
           height: 5,
         ),
-        Text(widget.desc,
+        Text(widget.b.author!,
             style: TextStyle(
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w400,
@@ -233,12 +228,9 @@ class Models {
           children: [
             const SizedBox(height: 30),
             MyCustomContainer(
-              ast: b.asset!,
-              title: b.title!,
-              desc: b.author!,
+              b: b,
               ct: const Color(0xFF707070),
               cd: const Color(0xFF707070),
-              id: b.id!,
               
             ),
             const SizedBox(
