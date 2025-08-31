@@ -130,15 +130,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           : const Color(0xFFAFDFC7),
                       onPressed: () {
                         if (_formKeyy.currentState!.validate()) {
-                          if (LoginState is LoginSuccess) {
+                          if(state is LoginInitial){
+                            BlocProvider.of<Logincubit>(context).login(usernameController.text, passwordController.text);
+                          }
+                          if (state is LoginSuccess) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomePage()));
-                          } else if (LoginState is LoginFailed) {
+                          } else if (state is LoginFailed) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                    content: Text("User already exists")));
+                                    content: Text("Username and Passwords does not match")));
                           }
                         }
                       },
