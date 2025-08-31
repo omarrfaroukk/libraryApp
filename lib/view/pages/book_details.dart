@@ -3,7 +3,8 @@ import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/view/pages/my_books.dart';
 
 class BookDetails extends StatefulWidget {
-  const BookDetails({super.key});
+  final Book b;
+  const BookDetails({super.key, required this.b});
 
   @override
   State<BookDetails> createState() => _BookDetailsState();
@@ -45,7 +46,7 @@ class _BookDetailsState extends State<BookDetails> {
               children:[
                 const SizedBox(height: 20,),
                 Models.cardToDisplay(
-                  Models.bookToDisplay(0)
+                  widget.b,
                 ),
             ])
             

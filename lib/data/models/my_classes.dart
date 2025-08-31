@@ -210,16 +210,6 @@ class Models {
     );
   }
 
-  static Book bookToDisplay(int i) {
-    if (i == 0) {
-      return kotob[0];
-    } else if (i == 1) {
-      return kotob[1];
-    } else {
-      return kotob[2];
-    }
-  }
-
   static Widget cardToDisplay(Book b) {
     return SingleChildScrollView(
       child: SizedBox(

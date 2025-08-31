@@ -69,11 +69,16 @@ class _MyBooksState extends State<MyBooks> {
                         itemBuilder: (context,index){
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: MyCustomContainer(
-                              b: state.favorites[index],
-                              ct: const Color(0xFF707070),
-                              cd: const Color(0xFF707070),
-                             
+                            child: GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => BookDetails(b: state.favorites[index],)));
+                              },
+                              child: MyCustomContainer(
+                                b: state.favorites[index],
+                                ct: const Color(0xFF707070),
+                                cd: const Color(0xFF707070),
+                               
+                              ),
                             ),
                           );
                         }),
