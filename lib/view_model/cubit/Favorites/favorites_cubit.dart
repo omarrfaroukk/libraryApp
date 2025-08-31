@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/models/my_classes.dart';
-import 'FavoriteState.dart';
+import '../../../data/models/my_classes.dart';
+import 'favorites_state.dart';
 class Favoritecubit extends Cubit<Favoritestate> {
   Favoritecubit() : super(FavoriteInitial());
   List<Book> favorites=[];
