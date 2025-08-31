@@ -198,11 +198,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       : const Color(0xFFAFDFC7),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()),
-                      );
+                     
                     }
                   },
                   child: const Text(
