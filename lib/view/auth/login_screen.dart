@@ -21,8 +21,24 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<Logincubit, LoginState>(
+    return BlocConsumer<Logincubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginSuccess) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePage()),
+          );
+        } else if (state is LoginFailed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text("Username and Passwords does not match")),
+          );
+        }
+      },
       builder: (context, state) {
+        if (state is LoginLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
         return Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
@@ -130,19 +146,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           : const Color(0xFFAFDFC7),
                       onPressed: () {
                         if (_formKeyy.currentState!.validate()) {
-                          if(state is LoginInitial){
-                            BlocProvider.of<Logincubit>(context).login(usernameController.text, passwordController.text);
-                          }
-                          if (state is LoginSuccess) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()));
-                          } else if (state is LoginFailed) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text("Username and Passwords does not match")));
-                          }
+                          
+                          BlocProvider.of<Logincubit>(context).login(
+                              usernameController.text, passwordController.text);
                         }
                       },
                       child: const Text(
@@ -152,6 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 18),
                       ),
                     ),
+                    
                   ],
                 ),
               ),

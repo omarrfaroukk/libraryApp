@@ -8,7 +8,7 @@ class SignupCubit extends Cubit<SignupState>{
   Future<void>signup(String u, String p)async
   {
     emit(SignupInitial());
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
     if (Authentication.authedUsers.keys.contains(u)){
       emit(SignupFailed());
     }else{
