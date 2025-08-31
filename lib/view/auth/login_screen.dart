@@ -31,6 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
         } else if (state is LoginFailed) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
+              backgroundColor: Colors.red,
                 content: Text("Username and Passwords does not match")),
           );
         }
