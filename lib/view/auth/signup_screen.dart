@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:library_app/core/widgets/my_custom_text_field.dart';
 import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/view_model/cubit/Signup/signup_cubit.dart';
 import 'package:library_app/view_model/cubit/Signup/signup_state.dart';
@@ -79,19 +80,19 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Models.myCustomtextField(
-                      "Email",
-                      false,
-                      TextInputType.emailAddress,
-                      emailController,
-                      Icons.email_rounded),
+                  MyCustomTextField(
+                      txtt: "Email",
+                      obs: false,
+                      kt: TextInputType.emailAddress,
+                      tec: emailController,
+                      myicon: Icons.email_rounded),
                   const SizedBox(height: 20),
-                  Models.myCustomtextField(
-                      "Username",
-                      false,
-                      TextInputType.text,
-                      usernameController,
-                      Icons.person_2_rounded),
+                  MyCustomTextField(
+                      txtt: "Username",
+                      obs: false,
+                      kt: TextInputType.text,
+                      tec: usernameController,
+                      myicon: Icons.person_2_rounded),
                   const SizedBox(height: 20),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
