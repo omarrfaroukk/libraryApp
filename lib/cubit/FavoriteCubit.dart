@@ -7,13 +7,15 @@ class Favoritecubit extends Cubit<Favoritestate> {
   List<Book> favorites=[];
 
   void addToFavorites(Book b){
-    if(favorites.contains(b)){
-     removeFromFavorites(b);
-    }else{
+    for (int i = 0 ;i<favorites.length;i++){
+      if(favorites[i].id==b.id){
+        removeFromFavorites(b);
+        return;
+      }
+    }
     favorites.add(b);
     emit(FavoritesUpdated(List.from(favorites)));
-    }
-    
+
   }
 
   void removeFromFavorites(Book b){
