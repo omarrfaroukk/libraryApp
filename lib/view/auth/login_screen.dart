@@ -37,9 +37,6 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       },
       builder: (context, state) {
-        if (state is LoginLoading) {
-          return const Center(child: CircularProgressIndicator());
-        }
         return Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
@@ -147,7 +144,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           : const Color(0xFFAFDFC7),
                       onPressed: () {
                         if (_formKeyy.currentState!.validate()) {
-                          
                           BlocProvider.of<Logincubit>(context).login(
                               usernameController.text, passwordController.text);
                         }
