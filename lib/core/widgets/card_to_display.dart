@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
-import '../../data/models/Books.dart';
-import '../../data/models/my_classes.dart';
+import '../../data/models/books.dart';
 import 'my_custom_container.dart';
 
 class CardToDisplay extends StatelessWidget {
-  final Book b ;
-  const CardToDisplay({super.key,required this.b});
+  final Book b;
+  const CardToDisplay({super.key, required this.b});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,6 @@ class CardToDisplay extends StatelessWidget {
               b: b,
               ct: const Color(0xFF707070),
               cd: const Color(0xFF707070),
-              
             ),
             const SizedBox(
               height: 20,
@@ -78,6 +75,6 @@ class CardToDisplay extends StatelessWidget {
           ],
         ),
       ),
-    ); 
+    );
   }
 }

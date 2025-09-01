@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:library_app/core/widgets/my_custom_text_field.dart';
 import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/view/pages/home_page.dart';
 import 'package:library_app/view_model/cubit/Login/login_cubit.dart';
@@ -60,12 +61,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Models.myCustomtextField(
-                        "Username",
-                        false,
-                        TextInputType.text,
-                        usernameController,
-                        Icons.person_2_rounded),
+                   MyCustomTextField(
+                        txtt: "Username",
+                        obs: false,
+                        kt: TextInputType.text,
+                        tec: usernameController,
+                        myicon: Icons.person_2_rounded),
                     const SizedBox(height: 20),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,

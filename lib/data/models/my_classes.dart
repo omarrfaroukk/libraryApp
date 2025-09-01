@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-
-import '../../core/widgets/my_custom_container.dart';
-import 'Books.dart';
+import 'books.dart';
 
 
 
@@ -18,91 +16,6 @@ class Models {
     );
   }
 
-  static Widget myCustomtextField(String txtt, bool obs, TextInputType kt,
-      TextEditingController tec, IconData myicon) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Text(
-                txtt,
-                style: const TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 20,
-                    color: Color(0xFF5ABD8C),
-                    fontWeight: FontWeight.w400),
-              ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: TextFormField(
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (value) {
-                if (value!.isEmpty || value.length < 3) {
-                  return "Please enter valid data";
-                } else {
-                  return null;
-                }
-              },
-              controller: tec,
-              keyboardType: kt,
-              obscureText: obs,
-              obscuringCharacter: '*',
-              decoration: InputDecoration(
-                suffixIcon: (txtt == "Password" || txtt == "Confirm Password")
-                    ? IconButton(
-                        icon: const Icon(Icons.remove_red_eye_outlined),
-                        onPressed: () {},
-                      )
-                    : null,
-                icon: Icon(myicon),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide:
-                        const BorderSide(color: Color(0xFF5ABD8C), width: 2)),
-              )),
-        )
-      ],
-    );
-  }
-
-  static Widget myCustomDrawerItem(IconData icon, String txt) {
-    return GestureDetector(
-      child: Container(
-        height: 50,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.transparent,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const SizedBox(width: 10),
-            Icon(
-              icon,
-              color: const Color(0xFF707070),
-            ),
-            const SizedBox(width: 10),
-            Text(
-              txt,
-              style: const TextStyle(
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-                fontSize: 20,
-                color: Color(0xFF707070),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   static Widget myCategoryContainer(String ast, String txt) {
     return Container(

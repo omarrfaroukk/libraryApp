@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               onPressed: () {},
               icon: const Icon(
-                icon: Icons.search_rounded,
+                Icons.search_rounded,
                 color: Colors.white,
               ))
         ],
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pop(context);
                     },
                     icon: const Icon(
-                      icon: Icons.close_rounded,
+                      Icons.close_rounded,
                       color: Color(0xFF5ABD8C),
                       size: 30,
                     ),
@@ -97,8 +97,8 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (context) => const ChooseJoin()));
                   },
-                  child: Models.myCustomDrawerItem(
-                      icon: Icons.logout_outlined, "Log out")),
+                  child:const MyCustomDrawerItem(
+                      icon: Icons.logout_outlined,txt: "Log out")),
             ],
           ),
         ),

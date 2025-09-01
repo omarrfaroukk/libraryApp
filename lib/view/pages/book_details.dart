@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:library_app/core/widgets/card_to_display.dart';
-import 'package:library_app/data/models/my_classes.dart';
 
-import '../../data/models/Books.dart';
+
+import '../../data/models/books.dart';
 //import 'package:library_app/view/pages/my_books.dart';
 
 class BookDetails extends StatefulWidget {
