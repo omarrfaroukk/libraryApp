@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:library_app/core/widgets/my_category_container.dart';
 import 'package:library_app/core/widgets/my_custom_drawer_item.dart';
 import 'package:library_app/view_model/cubit/Favorites/favorites_state.dart';
 import 'package:library_app/data/models/my_classes.dart';
@@ -216,38 +217,38 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xFF5ABD8C)),
                   ),
                 ),
-                Column(
+                const Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Models.myCategoryContainer(
-                            "assets/categories/fantasy.png", "Fantasy"),
-                        Models.myCategoryContainer(
-                            "assets/categories/fiction.png", "Fiction"),
+                        MyCategoryContainer(
+                            ast: "assets/categories/fantasy.png",txt:  "Fantasy"),
+                        MyCategoryContainer(
+                            ast: "assets/categories/fiction.png",txt: "Fiction"),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Models.myCategoryContainer(
-                            "assets/categories/Crime.png", "Crime"),
-                        Models.myCategoryContainer(
-                            "assets/categories/youngad.png", "Young Adult"),
+                        MyCategoryContainer(
+                            ast: "assets/categories/Crime.png", txt: "Crime"),
+                        MyCategoryContainer(
+                            ast: "assets/categories/youngad.png",txt:  "Young Adult"),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Models.myCategoryContainer(
-                            "assets/categories/horror.png", "Horror"),
-                        Models.myCategoryContainer(
-                            "assets/categories/romance.png", "Romance"),
+                        MyCategoryContainer(
+                            ast: "assets/categories/horror.png",txt:  "Horror"),
+                        MyCategoryContainer(
+                            ast: "assets/categories/romance.png",txt:  "Romance"),
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    SizedBox(height: 30),
                   ],
                 ),
               ],

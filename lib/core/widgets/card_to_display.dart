@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/models/books.dart';
+import '../../data/models/book.dart';
 import 'my_custom_container.dart';
 
 class CardToDisplay extends StatelessWidget {

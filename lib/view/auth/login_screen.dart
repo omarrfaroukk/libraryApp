@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:library_app/core/widgets/get_background_image.dart';
 import 'package:library_app/core/widgets/my_custom_text_field.dart';
 import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/view/pages/home_page.dart';
@@ -54,7 +55,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontStyle: FontStyle.italic),
               ),
             ),
-            body: Models.getBackgroundImage(Form(
+            body: GetBackgroundImage(
+              w: Form(
               key: _formKeyy,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),

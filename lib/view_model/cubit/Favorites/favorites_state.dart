@@ -1,5 +1,5 @@
 
-import '../../../data/models/books.dart';
+import '../../../data/models/book.dart';
 
 class Favoritestate {
   final List<Book>favorites;

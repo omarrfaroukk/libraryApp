@@ -1,42 +1,10 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'books.dart';
+import 'book.dart';
 
 
 
 class Models {
-  static Widget getBackgroundImage(Widget w) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/image.png"), fit: BoxFit.cover)),
-      child: w,
-    );
-  }
-
-
-  static Widget myCategoryContainer(String ast, String txt) {
-    return Container(
-      width: 160,
-      height: 150,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(image: AssetImage(ast), fit: BoxFit.cover)),
-      child: Center(
-        child: Text(
-          txt,
-          style: const TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w400,
-              fontSize: 24,
-              color: Colors.white),
-        ),
-      ),
-    );
-  }
-
 
   static List<Book> kotob = [
     Book(
