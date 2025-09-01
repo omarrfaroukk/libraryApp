@@ -1,12 +1,11 @@
 import 'dart:core';
-import 'package:flutter/material.dart';
+
 import 'book.dart';
 
 
 
-class Models {
 
-  static List<Book> kotob = [
+  List<Book> kotob = [
     Book(
       title: 'To Kill a Mockingbird',
       author: 'Harper Lee',
@@ -117,5 +116,4 @@ class Models {
       isFavourite: false,
     ),
   ];
-}
 

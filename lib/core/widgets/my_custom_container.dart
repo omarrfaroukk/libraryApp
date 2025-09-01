@@ -46,17 +46,17 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
             builder: (context, state) {
               return IconButton(
                   onPressed: () {
-                    if (state.favorites.contains(Models.kotob[widget.b.id!])) {
-                      context.read<Favoritecubit>().removeFromFavorites(Models.kotob[widget.b.id!]);
-                      Models.kotob[widget.b.id!].isFavourite = false;
+                    if (state.favorites.contains(kotob[widget.b.id!])) {
+                      context.read<Favoritecubit>().removeFromFavorites(kotob[widget.b.id!]);
+                      kotob[widget.b.id!].isFavourite = false;
                     }else{
-                    context.read<Favoritecubit>().addToFavorites(Models.kotob[widget.b.id!]);
-                    Models.kotob[widget.b.id!].isFavourite = true;
+                    context.read<Favoritecubit>().addToFavorites(kotob[widget.b.id!]);
+                    kotob[widget.b.id!].isFavourite = true;
                     }
                    
                   },
                   icon: Icon(
-                      state.favorites.contains(Models.kotob[widget.b.id!])
+                      state.favorites.contains(kotob[widget.b.id!])
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color: const Color(0xFF5ABD8C),

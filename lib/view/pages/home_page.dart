@@ -142,13 +142,13 @@ class _HomePageState extends State<HomePage> {
                         height: 300,
                         width: double.infinity,
                         child: ListView.builder(
-                          itemCount: Models.kotob.length,
+                          itemCount: kotob.length,
                           scrollDirection: Axis.horizontal,
                           physics: const BouncingScrollPhysics(),
                           itemExtent: 170,
                           itemBuilder: (context, index) {
                             return MyCustomContainer(
-                              b: Models.kotob[index],
+                              b: kotob[index],
                               ct: const Color(0xFF707070),
                               cd: const Color(0xFF707070),
                             );
