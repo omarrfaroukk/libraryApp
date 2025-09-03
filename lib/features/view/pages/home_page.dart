@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:library_app/core/widgets/my_category_container.dart';
 import 'package:library_app/core/widgets/my_custom_drawer_item.dart';
+import 'package:library_app/features/view/category_page.dart';
 import 'package:library_app/features/view_model/cubit/Favorites/favorites_state.dart';
 import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/features/view/pages/my_books.dart';
@@ -217,40 +219,29 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xFF5ABD8C)),
                   ),
                 ),
-                const Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MyCategoryContainer(
-                            ast: "assets/categories/fantasy.png",txt:  "Fantasy"),
-                        MyCategoryContainer(
-                            ast: "assets/categories/fiction.png",txt: "Fiction"),
-                      ],
+                SizedBox(
+                  height: 700,
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                    itemCount: 6,
+                    itemBuilder: 
+                    (context,index){
+                      return Padding(
+                        padding: const EdgeInsets.all(18),
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>CategoryPage(category:myCategories[index].name , asset: myCategories[index].ast)));
+                          },
+                          child: MyCategoryContainer(
+                              txt: myCategories[index].name,
+                              ast: myCategories[index].ast  
+                                            )
+                        ),
+                      );
+                    }
                     ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MyCategoryContainer(
-                            ast: "assets/categories/Crime.png", txt: "Crime"),
-                        MyCategoryContainer(
-                            ast: "assets/categories/youngad.png",txt:  "Young Adult"),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MyCategoryContainer(
-                            ast: "assets/categories/horror.png",txt:  "Horror"),
-                        MyCategoryContainer(
-                            ast: "assets/categories/romance.png",txt:  "Romance"),
-                      ],
-                    ),
-                    SizedBox(height: 30),
-                  ],
-                ),
+                )
+                
               ],
             ),
           ],

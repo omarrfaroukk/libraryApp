@@ -80,7 +80,7 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
         const SizedBox(
           height: 5,
         ),
-        Text(widget.b.author!,
+        Text([widget.b.authors].join(", "),
             style: TextStyle(
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w400,
