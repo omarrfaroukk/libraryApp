@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:library_app/core/widgets/card_to_display.dart';
 
 
-import '../../data/models/book.dart';
+import '../../../data/models/book.dart';
 //import 'package:library_app/view/pages/my_books.dart';
 
 class BookDetails extends StatefulWidget {

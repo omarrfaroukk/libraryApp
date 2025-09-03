@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:library_app/view/auth/login_screen.dart';
-import 'package:library_app/view/auth/signup_screen.dart';
+import 'package:library_app/features/view/auth/login_screen.dart';
+import 'package:library_app/features/view/auth/signup_screen.dart';
 
 class ChooseJoin extends StatelessWidget {
   const ChooseJoin({super.key});

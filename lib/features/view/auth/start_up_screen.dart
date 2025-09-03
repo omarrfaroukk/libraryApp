@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:library_app/view/auth/choose_join.dart';
+import 'package:library_app/features/view/auth/choose_join.dart';
 //import 'package:library_app/startups/login_screen.dart';
 
 class StartUpScreen extends StatelessWidget {

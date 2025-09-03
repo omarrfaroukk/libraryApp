@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:library_app/core/widgets/get_background_image.dart';
 import 'package:library_app/core/widgets/my_custom_text_field.dart';
-import 'package:library_app/view/pages/home_page.dart';
-import 'package:library_app/view_model/cubit/Login/login_cubit.dart';
-import 'package:library_app/view_model/cubit/Login/login_state.dart';
+import 'package:library_app/features/view/pages/home_page.dart';
+import 'package:library_app/features/view_model/cubit/Login/login_cubit.dart';
+import 'package:library_app/features/view_model/cubit/Login/login_state.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
