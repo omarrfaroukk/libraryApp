@@ -19,7 +19,7 @@ class ApiService {
           'maxResults': maxResults
         });
         final data = response.data;
-        final List<dynamic> items = data['items'];
+        final List<dynamic> items = data['items']??[];
         if (items.isEmpty) {
           break;
         }
