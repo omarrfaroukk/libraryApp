@@ -32,7 +32,7 @@ class CardToDisplay extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text("Genre: ${b.genre!}",
+            Text("Genre: ${b.genre??""}",
                 style: const TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,

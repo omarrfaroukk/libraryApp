@@ -8,11 +8,11 @@ class GetBooksCubit extends Cubit<GetBooksState> {
   final String category;
   GetBooksCubit({this.category='',required this.apiService}) : super(BooksInitial());
 
-  Future<void> getBooks() async {
+  Future<void> getBooks(String cat) async {
     try {
       emit(BooksLoading());
       await Future.delayed(const Duration(seconds: 2));
-      final books = await apiService.fetchCategoryBooks(category);
+      final books = await apiService.fetchCategoryBooks(cat);
       emit(BooksLoaded(books));
     } catch (e) {
       String error = e.toString();

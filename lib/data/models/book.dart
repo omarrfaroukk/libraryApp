@@ -4,13 +4,13 @@ class Book {
   String? description;
   String? asset;
   String? genre;
-  int? rating;
+  num? rating;
   int? id;
   bool? isAvailable;
   bool isFavourite;
   String? date;
   String? readlink;
-  int? pageCount;
+  num? pageCount;
 
 
   Book(
@@ -25,18 +25,6 @@ class Book {
       this.date,
       this.readlink,
       });
-
-  Book copyWith({bool? isFavourite}) {
-    return Book(
-      title: title,
-      authors: authors,
-      description: description,
-      asset: asset,
-      rating: rating,
-      id: id,
-      isFavourite: isFavourite ?? this.isFavourite,
-    );
-  }
 
   factory Book.fromJson(Map<String,dynamic> json){
     return Book(

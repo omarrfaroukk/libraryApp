@@ -4,9 +4,9 @@ import '../../data/models/book.dart';
 
 class ApiService {
   final Dio _dio = Dio();
+
   Future<List<Book>> fetchCategoryBooks(String category) async {
-    const String baseUrl = 'https://www.googleapis.com/books/v1/volumes';
-    String query = 'subject:$category';
+    String baseUrl = "https://www.googleapis.com/books/v1/volumes?q=subject:${Uri.encodeComponent(category)}";
     int startIndex = 0;
     const int maxResults = 10;
 
@@ -15,12 +15,11 @@ class ApiService {
     try {
       while (true) {
         final response = await _dio.get(baseUrl, queryParameters: {
-          'q': query,
           'startIndex': startIndex,
           'maxResults': maxResults
         });
         final data = response.data;
-        final List<dynamic> items = data['items']?? [];
+        final List<dynamic> items = data['items'];
         if (items.isEmpty) {
           break;
         }
