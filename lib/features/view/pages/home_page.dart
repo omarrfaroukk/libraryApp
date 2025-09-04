@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:library_app/core/widgets/my_category_container.dart';
 import 'package:library_app/core/widgets/my_custom_drawer_item.dart';
-import 'package:library_app/features/view/category_page.dart';
+import 'package:library_app/features/view/pages/category_page.dart';
 import 'package:library_app/features/view_model/cubit/Favorites/favorites_state.dart';
 import 'package:library_app/data/models/my_classes.dart';
 import 'package:library_app/features/view/pages/my_books.dart';
@@ -230,7 +230,13 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(18),
                         child: GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>CategoryPage(category:myCategories[index].name , asset: myCategories[index].ast)));
+                            Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context)=>CategoryPage(category:myCategories[index].name , asset: myCategories[index].ast),
+                              
+                              )
+                              
+                              );
                           },
                           child: MyCategoryContainer(
                               txt: myCategories[index].name,

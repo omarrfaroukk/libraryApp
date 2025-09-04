@@ -4,11 +4,11 @@ class Book {
   String? description;
   String? asset;
   String? genre;
-  double? rating;
+  int? rating;
   int? id;
   bool? isAvailable;
   bool isFavourite;
-  int? date;
+  String? date;
   String? readlink;
   int? pageCount;
 
@@ -19,7 +19,7 @@ class Book {
       required this.description,
       required this.asset,
       required this.rating,
-      required this.id,
+      this.id,
       required this.isFavourite,
       this.pageCount,
       this.date,
@@ -40,14 +40,13 @@ class Book {
 
   factory Book.fromJson(Map<String,dynamic> json){
     return Book(
-      id: json['volumeInfo']['id'] ?? '',
       title: json['volumeInfo']['title'] ?? 'Unknown Title',
       authors: List<String>.from(json['volumeInfo']['authors'] ?? []),
-      date: json['volumeInfo']['publishedDate'] ?? 'Unknown Date',
+      date: json['volumeInfo']['publishedDate'] ?? '',
       description: json['volumeInfo']['description'] ?? 'No Description',
       pageCount: json['volumeInfo']['pageCount'] ?? 0,
       asset: json['volumeInfo']['imageLinks']?['thumbnail'] ?? '',
-      rating: json['volumeInfo']['averageRating'] ?? 0.0,
+      rating: json['volumeInfo']['averageRating'] ?? 5 ,
       isFavourite: false
     );
   }

@@ -1,17 +1,16 @@
 import 'dart:core';
 
-import 'package:flutter/foundation.dart';
 import 'package:library_app/data/models/category.dart';
 
 import 'book.dart';
 
-List <myCategory> myCategories =[
-  myCategory(name: "Fantasy", ast: 'assets/categories/fantasy.png'),
-  myCategory(name: "Fiction", ast: 'assets/categories/fiction.png'),
-  myCategory(name: "Crime", ast: 'assets/categories/Crime.png'),
-  myCategory(name: "Young Adult", ast: 'assets/categories/youngad.png'),
-  myCategory(name: "Horror", ast: 'assets/categories/horror.png'),
-  myCategory(name: "Fantasy", ast: 'assets/categories/romance.png'),
+List <MyCategory> myCategories =[
+  MyCategory(name: "Fantasy", ast: 'assets/categories/fantasy.png'),
+  MyCategory(name: "Fiction", ast: 'assets/categories/fiction.png'),
+  MyCategory(name: "Crime", ast: 'assets/categories/Crime.png'),
+  MyCategory(name: "Young Adult", ast: 'assets/categories/youngad.png'),
+  MyCategory(name: "Horror", ast: 'assets/categories/horror.png'),
+  MyCategory(name: "Fantasy", ast: 'assets/categories/romance.png'),
 
 ];
 
@@ -21,11 +20,11 @@ List<Book> kotob = [
     authors: ['Harper Lee'],
     description: 'A classic novel about racial injustice and the loss of innocence.',
     asset: 'https://covers.openlibrary.org/b/id/12629737-L.jpg',
-    rating: 4.8,
+    rating: 4,
     id: 0,
     isFavourite: false,
     pageCount: 281,
-    date: 1960,
+    date: 1960.toString(),
     readlink: 'https://openlibrary.org/works/OL82563W/To_Kill_a_Mockingbird',
   ),
   Book(
@@ -33,11 +32,11 @@ List<Book> kotob = [
     authors: ['F. Scott Fitzgerald'],
     description: 'A novel about the American Dream and the excesses of the Roaring Twenties.',
     asset: 'https://covers.openlibrary.org/b/id/12858676-L.jpg',
-    rating: 4.5,
+    rating: 4,
     id: 1,
     isFavourite: false,
     pageCount: 180,
-    date: 1925,
+    date: 1925.toString(),
     readlink: 'https://openlibrary.org/works/OL2765017W/The_Great_Gatsby',
   ),
   Book(
@@ -45,11 +44,11 @@ List<Book> kotob = [
     authors: ['George Orwell'],
     description: 'A dystopian novel about government surveillance and the dangers of totalitarianism.',
     asset: 'https://covers.openlibrary.org/b/id/7222246-L.jpg',
-    rating: 4.7,
+    rating: 4,
     id: 2,
     isFavourite: false,
     pageCount: 328,
-    date: 1949,
+    date: 1949.toString(),
     readlink: 'https://openlibrary.org/works/OL7343626W/1984',
   ),
   Book(
@@ -57,11 +56,11 @@ List<Book> kotob = [
     authors: ['Jane Austen'],
     description: 'A classic romance novel about love, family, and social class.',
     asset: 'https://covers.openlibrary.org/b/id/8154299-L.jpg',
-    rating: 4.6,
+    rating: 4,
     id: 3,
     isFavourite: false,
     pageCount: 279,
-    date: 1813,
+    date: 1813.toString(),
     readlink: 'https://openlibrary.org/works/OL14919106W/Pride_and_Prejudice',
   ),
   Book(
@@ -69,11 +68,11 @@ List<Book> kotob = [
     authors: ['J.D. Salinger'],
     description: 'A coming-of-age novel about teenage angst and alienation.',
     asset: 'https://covers.openlibrary.org/b/id/10401309-L.jpg',
-    rating: 4.4,
+    rating: 4,
     id: 4,
     isFavourite: false,
     pageCount: 277,
-    date: 1951,
+    date: 1951.toString(),
     readlink: 'https://openlibrary.org/works/OL45804W/The_Catcher_in_the_Rye',
   ),
   Book(
@@ -81,11 +80,11 @@ List<Book> kotob = [
     authors: ['Douglas Adams'],
     description: 'A comedic science fiction series about space travel and the absurdities of life.',
     asset: 'https://covers.openlibrary.org/b/id/12607988-L.jpg',
-    rating: 4.5,
+    rating: 4,
     id: 5,
     isFavourite: false,
     pageCount: 224,
-    date: 1979,
+    date: 1979.toString(),
     readlink: 'https://openlibrary.org/works/OL15358613W/The_Hitchhiker%27s_Guide_to_the_Galaxy',
   ),
   Book(
@@ -93,11 +92,11 @@ List<Book> kotob = [
     authors: ['J.R.R. Tolkien'],
     description: 'A high fantasy novel about friendship, sacrifice, and the battle between good and evil.',
     asset: 'https://covers.openlibrary.org/b/id/13523139-L.jpg',
-    rating: 4.8,
+    rating: 4,
     id: 6,
     isFavourite: false,
     pageCount: 1178,
-    date: 1954,
+    date: 1954.toString(),
     readlink: 'https://openlibrary.org/works/OL27448W/The_Lord_of_the_Rings',
   ),
   Book(
@@ -105,11 +104,11 @@ List<Book> kotob = [
     authors: ['Oscar Wilde'],
     description: 'A philosophical novel about beauty, morality, and the corrupting influence of desire.',
     asset: 'https://covers.openlibrary.org/b/id/12580780-L.jpg',
-    rating: 4.4,
+    rating: 4,
     id: 7,
     isFavourite: false,
     pageCount: 254,
-    date: 1890,
+    date: 1890.toString(),
     readlink: 'https://openlibrary.org/works/OL262759W/The_Picture_of_Dorian_Gray',
   ),
   Book(
@@ -117,11 +116,11 @@ List<Book> kotob = [
     authors: ['Alexandre Dumas'],
     description: 'An adventure novel about betrayal, revenge, and redemption.',
     asset: 'https://covers.openlibrary.org/b/id/10529976-L.jpg',
-    rating: 4.6,
+    rating: 4,
     id: 8,
     isFavourite: false,
     pageCount: 1276,
-    date: 1844,
+    date: 1844.toString(),
     readlink: 'https://openlibrary.org/works/OL45804W/The_Count_of_Monte_Cristo',
   ),
   Book(
@@ -129,11 +128,11 @@ List<Book> kotob = [
     authors: ['Leo Tolstoy'],
     description: 'A historical novel about love, family, and the Napoleonic Wars.',
     asset: 'https://covers.openlibrary.org/b/id/12626803-L.jpg',
-    rating: 4.7,
+    rating: 4,
     id: 9,
     isFavourite: false,
     pageCount: 1225,
-    date:1813,
+    date:1813.toString(),
     readlink: 'https://openlibrary.org/works/OL14919106W/Pride_and_Prejudice',
   )
   ];

@@ -56,7 +56,7 @@ class _MyCustomContainerState extends State<MyCustomContainer> {
                    
                   },
                   icon: Icon(
-                      state.favorites.contains(kotob[widget.b.id!])
+                      state.favorites.contains(kotob[widget.b.id??0])
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color: const Color(0xFF5ABD8C),
