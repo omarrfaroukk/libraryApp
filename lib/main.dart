@@ -10,9 +10,10 @@ import 'package:library_app/features/view/auth/start_up_screen.dart';
 import 'package:library_app/features/view_model/cubit/Login/login_cubit.dart';
 import 'package:library_app/features/view_model/cubit/Signup/signup_cubit.dart';
 
-import 'features/api/api_service.dart';
+import 'features/api/repo/api_repo.dart';
+import 'features/api/service/api_service.dart';
 import 'features/view_model/cubit/Favorites/favorites_cubit.dart';
-import 'features/view_model/cubit/books_api/get_books_cubit.dart';
+import 'features/api/cubit/get_books_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<Favoritecubit>(create: (context) => Favoritecubit()),
         BlocProvider<Logincubit>(create: (context) => Logincubit()),
         BlocProvider<SignupCubit>(create: (context)=> SignupCubit()),
-        BlocProvider<GetBooksCubit>(create: (context) => GetBooksCubit(apiService:  ApiService())),
+        BlocProvider<GetBooksCubit>(create: (context) => GetBooksCubit(ApiRepo(ApiService()))),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

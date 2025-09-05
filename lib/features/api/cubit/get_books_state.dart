@@ -1,5 +1,5 @@
 
-import '../../../../data/models/book.dart';
+import '../../../data/models/book.dart';
 
 class GetBooksState {}
 
@@ -8,11 +8,11 @@ class BooksInitial extends GetBooksState {}
 class BooksLoading extends GetBooksState {}
 
 class BooksLoaded extends GetBooksState {
-  List<Book> books;
+  final List<Book> books;
   BooksLoaded(this.books);
 }
 
 class BookError extends GetBooksState {
-  String error;
+  final String error;
   BookError(this.error);
 }

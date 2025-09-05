@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:library_app/core/widgets/new_custom_container.dart';
-import 'package:library_app/features/view_model/cubit/books_api/get_books_cubit.dart';
-import 'package:library_app/features/view_model/cubit/books_api/get_books_state.dart';
+import 'package:library_app/features/api/cubit/get_books_cubit.dart';
+import 'package:library_app/features/api/cubit/get_books_state.dart';
 
 
 
