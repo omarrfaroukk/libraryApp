@@ -30,7 +30,7 @@ class _NewCustomContainerState extends State<NewCustomContainer> {
         Stack(children: [
           Container(
             width: 90,
-            height: 120,
+            height: 130,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
@@ -78,6 +78,7 @@ class _NewCustomContainerState extends State<NewCustomContainer> {
         ),
         Text([widget.b.authors].join(", "),
             style: TextStyle(
+              overflow: TextOverflow.ellipsis,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w400,
               fontSize: 12,

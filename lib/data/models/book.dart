@@ -33,7 +33,7 @@ class Book {
       date: json['volumeInfo']['publishedDate'] ?? '',
       description: json['volumeInfo']['description'] ?? 'No Description',
       pageCount: json['volumeInfo']['pageCount'] ?? 0,
-      asset: json['volumeInfo']['imageLinks']?['thumbnail'] ?? '',
+      asset: json['volumeInfo']['imageLinks']['smallThumbnail'] ?? '',
       rating: json['volumeInfo']['averageRating'] ?? 5 ,
       isFavourite: false
     );

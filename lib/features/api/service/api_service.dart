@@ -9,7 +9,8 @@ class ApiService {
     const int maxResults = 10;
 
     try {
-      final response = await _dio.get('/volumes', queryParameters: {
+      final response = await _dio.get(
+        '/volumes', queryParameters: {
         'q': 'subject:${Uri.encodeComponent(category)}',
         'startIndex': startIndex,
         'maxResults': maxResults
@@ -19,19 +20,5 @@ class ApiService {
       throw Exception('Failed to fetch books: $e');
     }
   }
-
- Future<int> getTotalBooks(String category) async {
-    try {
-      final response = await _dio.get(
-        '/volumes',
-        queryParameters: {
-          'q': 'subject:${Uri.encodeComponent(category)}',
-          'maxResults': 1,
-        },
-      );
-      return response.data['totalItems'] ?? 0;
-    } catch (e) {
-      throw Exception('Failed to fetch total items: $e');
-    }
-  }
+  
 }

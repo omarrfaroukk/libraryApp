@@ -8,9 +8,9 @@ List <MyCategory> myCategories =[
   MyCategory(name: "Fantasy", ast: 'assets/categories/fantasy.png'),
   MyCategory(name: "Fiction", ast: 'assets/categories/fiction.png'),
   MyCategory(name: "Crime", ast: 'assets/categories/Crime.png'),
-  MyCategory(name: "Young Adult", ast: 'assets/categories/youngad.png'),
+  MyCategory(name: "Adult", ast: 'assets/categories/youngad.png'),
   MyCategory(name: "Horror", ast: 'assets/categories/horror.png'),
-  MyCategory(name: "Fantasy", ast: 'assets/categories/romance.png'),
+  MyCategory(name: "Romance", ast: 'assets/categories/romance.png'),
 
 ];
 
