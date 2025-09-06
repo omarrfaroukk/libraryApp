@@ -35,7 +35,8 @@ class Book {
       pageCount: json['volumeInfo']['pageCount'] ?? 0,
       asset: json['volumeInfo']['imageLinks']['smallThumbnail'] ?? '',
       rating: json['volumeInfo']['averageRating'] ?? 5 ,
-      isFavourite: false
+      isFavourite: false,
+      readlink: json['accessInfo']['pdf']['acsTokenLink'] ?? '',
     );
   }
 }

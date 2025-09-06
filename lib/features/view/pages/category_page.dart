@@ -70,10 +70,13 @@ class _CategoryPageState extends State<CategoryPage> {
                         itemBuilder: (context, index) {
                           return Padding(
                               padding: const EdgeInsets.all(8),
-                              child: NewCustomContainer(
-                                b: state.books[index],
-                                ct: const Color(0xFF707070),
-                                cd: const Color(0xFF707070),
+                              child: GestureDetector(
+                                  
+                                child: NewCustomContainer(
+                                  b: state.books[index],
+                                  ct: const Color(0xFF707070),
+                                  cd: const Color(0xFF707070),
+                                ),
                               ));
                         }),
                   );
